@@ -8,7 +8,7 @@ name: Publish on PyPi
 
 jobs:
   Create_PyPi_Release:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -44,7 +44,7 @@ jobs:
     needs: Create_PyPi_Release
     strategy:
       matrix:
-        os: [ubuntu-latest, macOS-latest, windows-latest]
+        os: [self-hosted, macOS-latest, windows-latest]
     steps:
       - uses: actions/checkout@v2
       - uses: conda-incubator/setup-miniconda@v3
